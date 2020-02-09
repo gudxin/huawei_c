@@ -16,22 +16,22 @@ int main()
     ch = 0;
     for (j = 1; j < i;j++)
     {
-        for (k = 0; k < i - 1;k++)
+        for (k = 0; k <= j - 1;k++)
         {
-            if(newstr[k]!=str[j])
+            if(newstr[k]==str[j])
             {
-                if(k == i - 2)
-                {
-                    newstr[++ch] = str[j];
-                    break;
-                }
+                break;
             }
             else
             {
+                
             }
         }
+        if(k == j)
+        {
+             newstr[++ch] = str[j];
+        }
     }
-
     
     ch = 0;
     while(newstr[ch]!='\0')
