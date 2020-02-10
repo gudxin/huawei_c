@@ -7,7 +7,7 @@ int main()
 {
     gets(stringa);
     len = strlen(stringa);
-    printf("len:%d\n", len);
+//判断中间是否有空格，若没有，长度就是字符串长度
     for (j = 0; j < len;j++)
     {
         if(stringa[j] != ' ')
@@ -20,7 +20,7 @@ int main()
     }   
     if(j == len)
     {
-        printf("j:%d\n", j);
+        printf("%d\n", j);
     }
     else
     {
