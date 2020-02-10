@@ -53,7 +53,7 @@ int main()
         scanf("%d %d",&indexs[i][0],&indexs[i][1]);
         
     }
-    printf("\n\n");
+
     ascending_order();
     merge();
     for(i=0;i<j;i++)
