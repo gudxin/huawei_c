@@ -23,7 +23,7 @@ int main()
                 if(j == i)
                 {
                         newstr[cnt++] = str[i];
-
+                        printf("%c ", str[i]);
                 }
         }
         printf("%d", cnt);
