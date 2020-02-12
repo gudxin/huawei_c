@@ -3,16 +3,34 @@
 
 int main()
 {
-    int num,i=0;
-    char *p[100],str[100];
+    int num,i=0,j,k;
+    char str[1000][100],ch[100];
 
-    scanf("%d", &num);
-    printf("%d\n", num);
+    scanf("%d\n", &num);
     while(i<num)
     {
-        p[i] = gets(str);
-        printf("%d %s\n",i,p[i]);
+        gets(str[i]);
         i++;
     }
-    return 0;
+
+    for (j = 0; j < num-1;j++)
+    {
+        for (k = 0; k < num - j - 1;k++)
+        {
+            if(strcmp(str[k],str[k+1])>0)
+            {
+                strcpy(ch, str[k]);
+                strcpy(str[k], str[k + 1]);
+                strcpy(str[k + 1], ch);
+            }
+        }
+    }
+
+    i = 0;
+    while(i<num)
+    {
+        puts(str[i]);
+        i++;
+    }
+        return 0;
 }
