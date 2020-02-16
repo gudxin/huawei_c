@@ -38,7 +38,7 @@ int main()
                     {
                         cnt_1++;
                     }
-
+                    //写的十进制转二进制方法，可模块化
                     while(j<=(8*(i-3)-1))
                     {
                         if(ip_num[i] / k)
@@ -50,11 +50,9 @@ int main()
                         {
                             mask_bin[j] = 0;
                         }
-                        printf("k:%d %d\n",k, mask_bin[j]);
                         k /= 2;
                         j++;
                     }
-                    printf("\n");
                 }
                 if(cnt_0 == 4 || cnt_1 == 4)
                 {
