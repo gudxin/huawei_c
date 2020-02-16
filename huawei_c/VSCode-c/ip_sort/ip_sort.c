@@ -1,10 +1,11 @@
+//6.72.161.12~255.252.0.0(24行)
 #include<stdio.h>
 #include<string.h>
 
 int main()
 {
 
-    int ip_num[8],result[7]={},mask_bin[32],flag1,flag2,flag3,i,j,cnt_0,cnt_1;
+    int ip_num[8],result[7]={},mask_bin[32],flag1,flag2,flag3,i,j,k,cnt_0,cnt_1;
 
     while(scanf("%d.%d.%d.%d~%d.%d.%d.%d", &ip_num[0], &ip_num[1], &ip_num[2], &ip_num[3], &ip_num[4], &ip_num[5], &ip_num[6], &ip_num[7]) != EOF)
     {
@@ -28,6 +29,7 @@ int main()
             {
                 for (i = 4; i < 8;i++)
                 {
+                    k = 128;
                     if(ip_num[i] == 0)
                     {
                         cnt_0++;
@@ -36,23 +38,30 @@ int main()
                     {
                         cnt_1++;
                     }
-                    while(ip_num[i]>=0)
+
+                    while(j<=(8*(i-3)-1))
                     {
-                        mask_bin[j] = ip_num[i] % 2;
-                        j++;
-                        ip_num[i] /= 2;
-                        if(j==8*(i-3))
+                        if(ip_num[i] / k)
                         {
-                            break;
+                            mask_bin[j] = 1;
+                            ip_num[i] = ip_num[i] - k;
                         }
+                        else
+                        {
+                            mask_bin[j] = 0;
+                        }
+                        printf("k:%d %d\n",k, mask_bin[j]);
+                        k /= 2;
+                        j++;
                     }
+                    printf("\n");
                 }
                 if(cnt_0 == 4 || cnt_1 == 4)
                 {
                     result[5]++;
                     flag2 = 1;
                 }
-                if(flag1==0 && flag2==0)
+                if(flag2==0)
                 {
                     for (i = 0; i < 31;i++)
                     {
@@ -89,6 +98,3 @@ int main()
 
     return 0;
 }
-
-
-
