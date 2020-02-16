@@ -1,32 +1,24 @@
-#include<stdio.h>
-#include<string.h>
+/*编写一个函数，计算字符串中含有的不同字符的个数。
+字符在ACSII码范围内(0~127)，换行表示结束符，不算在字符里。
+不在范围内的不作统计。
+*/
 
-char str[1000],newstr[1000];
-int len,i,j,cnt=1;
+#include <stdio.h>
+#include <string.h>
 
+char str[1000],*p;
+short len,num=1,cnt;
 int main()
 {
-        gets(str);
-        len = strlen(str);
+    gets(str);
+    len = strlen(str);
+    p = str;
+    while (num<len)
+    {
+        if(str[num])
+        num++;
+    }
+    printf("%d", cnt );
 
-        newstr[0] = str[0];
-
-        for (i = 1; i < len;i++)
-        {
-                for (j = 0; j <= i - 1;j++)
-                {
-                        if(newstr[j] == str[i])
-                        {
-                                break;
-                        }
-                }
-                if(j == i)
-                {
-                        newstr[cnt++] = str[i];
-                        printf("%c ", str[i]);
-                }
-        }
-        printf("%d", cnt);
-
-        return 0;
+    return 0;
 }
